@@ -1,6 +1,5 @@
 import { Navbar } from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
-import { SignedIn, UserButton } from "@clerk/nextjs";
 
 const RootLayout = ({
   children
