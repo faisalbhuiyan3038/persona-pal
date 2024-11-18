@@ -5,7 +5,7 @@ import { ChatClient } from "./components/client";
 
 interface ChatIdPageProps {
   params: {
-    ChatId: string;
+    chatId: string;
   }
 }
 
@@ -19,7 +19,7 @@ const ChatIdPage = async ({
 
   const companion = await prismadb.companion.findUnique({
     where: {
-      id: params.ChatId,
+      id: params.chatId,
     },
     include: {
       messages: {
