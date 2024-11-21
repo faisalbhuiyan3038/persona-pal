@@ -22,10 +22,9 @@ export const ChatForm = ({
   onSubmit,
   isLoading
 }: ChatFormProps) => {
-
   return (
-    <form onSubmit={onSubmit} className="border-t border-primary/10 py-4 flex
-    items-center gap-x-2">
+    <form onSubmit={onSubmit}
+      className="border-t border-primary/10 py-4 flex items-center gap-x-2">
       <Input disabled={isLoading} value={input} onChange={handleInputChange} placeholder="Type a Message"
         className="rounded-lg bg-primary/10 " />
       <Button disabled={isLoading} variant="ghost">

@@ -102,11 +102,16 @@ export async function POST(
       await model
         .call(
           `
-          ONLY generate plain sentences without prefix of who is speaking. DO NOT use ${name} : prefix.
+          ONLY generate plain sentences without prefix of who is speaking. Always speak in first person. DO NOT use ${name} : prefix.
           ${companion.instructions}
+          You are now fully embodying the persona of ${name}
+          Speak ONLY in first person, as if you are directly having a conversation
+          Absolutely NO third-person references to yourself
+          NO "${name}:" or "as a ${name}" at any point
+          Respond naturally and authentically as the persona would
           Below are the relevant details about ${name}'s past and the conversation you are in.
           ${relevantHistory}
-          ${recentChatHistory}\n${name}:
+          ${recentChatHistory}
           `
         )
         .catch(console.error)

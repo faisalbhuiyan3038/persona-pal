@@ -25,14 +25,14 @@ export const ChatClient = ({
   const [messages, setMessages] = useState<ChatMessageProps[]>(companion.messages);
 
   const {
-    input, isLoading, handleInputChange, handleSubmit, setInput,
+    input, isLoading, handleInputChange, handleSubmit, setInput
   } = useCompletion({
     api: `/api/chat/${companion.id}`,
-    onFinish(prompt, completion) {
+    onFinish: (prompt, completion) => {
       const systemMessage: ChatMessageProps = {
         role: "system",
         content: completion,
-      }
+      };
 
       setMessages((current) => [...current, systemMessage]);
       setInput("");
@@ -49,7 +49,7 @@ export const ChatClient = ({
 
     setMessages((current) => [...current, userMessage]);
     handleSubmit(e);
-  }
+  };
 
   return (
     <div className="flex flex-col h-full p-4 space-y-2">
@@ -62,5 +62,5 @@ export const ChatClient = ({
       <ChatForm isLoading={isLoading} input={input} handleInputChange={handleInputChange}
         onSubmit={onSubmit} />
     </div>
-  )
-}
+  );
+};

@@ -31,7 +31,7 @@ export const ChatHeader = ({
       await axios.delete(`/api/companion/${companion.id}`);
       toast({
         description: "Success"
-      })
+      });
 
       router.refresh();
       router.push("/");
@@ -39,9 +39,9 @@ export const ChatHeader = ({
       toast({
         description: "Something went wrong.",
         variant: "destructive"
-      })
+      });
     }
-  }
+  };
 
   return (
     <div className="flex w-full justify-between items-center border-b border-primary/10 pb-4">
