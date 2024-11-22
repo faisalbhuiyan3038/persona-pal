@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, SignedOut, SignInButton } from "@clerk/nextjs";
 
 import { Sparkles } from "lucide-react";
 import { Poppins } from 'next/font/google';
@@ -35,7 +35,14 @@ export const Navbar = () => {
           <Sparkles className="h-4 w-4 fill-white text-white ml-2" />
         </Button>
         <ModeToggle />
-        <UserButton />
+        <SignedOut>
+          <SignInButton>
+            <Button variant="ghost" size="sm">
+              Sign In
+            </Button>
+          </SignInButton>
+        </SignedOut>
+        <UserButton afterSignOutUrl="/" />
       </div>
     </div>
   );
