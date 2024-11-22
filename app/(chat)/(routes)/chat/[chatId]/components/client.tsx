@@ -23,22 +23,27 @@ export const ChatClient = ({
 }: ChatClientProps) => {
   const router = useRouter();
   const [messages, setMessages] = useState<ChatMessageProps[]>(companion.messages);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     input, isLoading, handleInputChange, handleSubmit, setInput
   } = useCompletion({
     api: `/api/chat/${companion.id}`,
+    onError: (error) => {
+      console.error("Completion error:", error);
+    },
     onFinish: (prompt, completion) => {
+      console.log("inside onfinish: ");
+      console.log(prompt + completion);
       const systemMessage: ChatMessageProps = {
         role: "system",
         content: completion,
       };
-
-      setMessages((current) => [...current, systemMessage]);
+      setMessages((messages) => [...messages, systemMessage]);
       setInput("");
 
       router.refresh();
-    }
+    },
   });
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
