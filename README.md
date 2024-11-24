@@ -2,7 +2,7 @@
 
 > Create and chat with AI companions inspired by real or fictional personalities
 
-[Live Demo](Coming Soon) • [Case Study](Coming Soon)
+[Live Demo](https://persona-pal-sigma.vercel.app/) • [Case Study](https://faisalbhuiyan.vercel.app/work/persona-pal)
 
 ## About PersonaPal
 
